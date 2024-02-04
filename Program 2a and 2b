@@ -1,0 +1,51 @@
+program 2 A
+
+class song:
+  def __init__(self , lyrics):
+    self.lyrics = lyrics
+
+  def sing_me_a_song(self):
+    for i in self.lyrics:
+      print(i)
+
+
+s = song(['May god bless you' , 'Have a sunshine on you' , 'Happy birthday to you...!'])
+print(s.sing_me_a_song())
+
+
+
+
+
+
+
+
+program 2B
+
+class Dog:
+  def __init__(self , name , size , breed = "unknown" , dob = "unknown"):
+    self.name = name
+    self.size = size
+    self.breed = breed
+    self.dob = dob
+
+  def bark(self):
+    print("wolf")
+
+  def get_name(self):
+    print(self.name)
+
+  def set_name(self , Name):
+    self.name = Name
+    print(self.name)
+
+  def dog_years(self , cur_year):
+    YOB = self.dob[6:]
+    year = int(YOB)
+    age = (cur_year - year)*7
+    print(age)
+
+D = Dog('snoopy' , 33 , 'Pug' ,"02/02/2022" )
+print(D.bark())
+print(D.get_name())
+print(D.set_name("silky"))
+print(D.dog_years(2023))
