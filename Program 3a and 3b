@@ -1,0 +1,63 @@
+program 3A
+
+class Employee:
+    def __init__(self, name, salary):
+        self._name = name
+        self.__salary = salary
+
+    def work(self):
+        print(f"{self._name} is working.")
+
+    def show(self):
+        print(f"Employee: {self._name}")
+        print(f"Salary: {self.__salary}")
+
+employee1 = Employee("John Doe", 50000)
+
+
+employee1.work()
+employee1.show()
+
+
+
+
+
+program 3B
+
+class CreditCard:
+    def __init__(self, limit):
+        self.__limit = limit
+        self.__balance = 0
+
+    def get_balance(self):
+        return self.__balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited ${amount}. New balance: ${self.__balance}")
+        else:
+            print("Invalid deposit amount. Please deposit a positive amount.")
+
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.__balance and amount <= self.__limit:
+            self.__balance -= amount
+            print(f"Withdrew ${amount}. New balance: ${self.__balance}")
+        elif amount <= 0:
+            print("Invalid withdrawal amount. Please withdraw a positive amount.")
+        elif amount > self.__balance:
+            print("Insufficient funds. Withdrawal amount exceeds the available balance.")
+        elif amount > self.__limit:
+            print("Withdrawal amount exceeds the credit limit.")
+
+credit_card = CreditCard(limit=1000)
+
+balance = credit_card.get_balance()
+print(f"Current balance: ${balance}")
+
+credit_card.deposit(500)
+
+credit_card.withdraw(200)
+
+new_balance = credit_card.get_balance()
+print(f"Updated balance: ${new_balance}")
