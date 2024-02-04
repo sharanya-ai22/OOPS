@@ -1,0 +1,59 @@
+program 1A
+
+class Student:
+    pass
+
+class Marks:
+    pass
+
+student_instance = Student()
+marks_instance = Marks()
+
+is_student_instance = isinstance(student_instance, Student)
+is_marks_instance = isinstance(marks_instance, Marks)
+
+is_student_subclass = issubclass(Student, object)
+is_marks_subclass = issubclass(Marks, object)
+
+print(is_student_instance)
+print(is_marks_instance)
+
+print(is_student_subclass)
+print(is_marks_subclass)
+
+
+
+
+
+
+
+program 1 B
+
+
+class Complex:
+    def __init__(self, real, imag):
+        self.r_p = real
+        self.i_p = imag
+
+    def display(self):
+        print(f"{self.r_p} + {self.i_p}j")
+
+    @classmethod
+    def add_complex(cls, c1, c2):
+        real_sum = c1.r_p + c2.r_p
+        imag_sum = c1.i_p + c2.i_p
+        return cls(real_sum, imag_sum)
+
+if __name__ == "__main__":
+  c1 = Complex(2, 3)
+  c2 = Complex(1, 4)
+
+  print("Complex Number 1:")
+  c1.display()
+  print("Complex Number 2:")
+  c2.display()
+
+  c3 = Complex.add_complex(c1, c2)
+
+  print("Result after addition:")
+  c3.display()
