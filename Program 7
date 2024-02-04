@@ -1,0 +1,45 @@
+
+import pygame
+import sys
+
+pygame.init()
+
+
+width, height = 400, 400
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Shape Drawer")
+
+
+blue = (0, 0, 255)
+green = (0, 255, 0)
+black = (0, 0, 0)
+
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    
+    screen.fill((255, 255, 255))
+
+   
+    pygame.draw.polygon(screen, blue, [(146, 0), (291, 106), (236, 277), (56, 277), (0, 106)])
+
+   
+    pygame.draw.line(screen, green, (60, 300), (120, 300), 4)
+
+    
+    pygame.draw.circle(screen, green, (300, 50), 20)
+
+   
+    pygame.draw.ellipse(screen, black, (300, 250, 40, 80), 1)
+
+    
+    pygame.draw.rect(screen, black, (150, 300, 100, 50))
+
+    
+    pygame.display.flip()
+
+    pygame.time.Clock().tick(30)
