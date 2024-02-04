@@ -1,0 +1,34 @@
+import threading
+import time
+
+
+event = threading.Event()
+
+def function_A():
+    for num in range(1, 6):
+        print(num, end=' ')
+        event.set()  
+        time.sleep(0.5)  
+        event.clear()  
+
+def function_B():
+    letters = ['A', 'B', 'C', 'D', 'E']
+    for letter in letters:
+        event.wait()  
+        print(letter, end=' ')
+        time.sleep(0.5)  
+
+
+thread_A = threading.Thread(target=function_A)
+thread_B = threading.Thread(target=function_B)
+
+
+thread_A.start()
+thread_B.start()
+
+
+thread_A.join()
+thread_B.join()
+
+
+print("\nProgram terminated.")
